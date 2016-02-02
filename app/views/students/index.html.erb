@@ -1,0 +1,26 @@
+<h1>Listing students</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Login</th>
+                <th>Family</th>
+                <th>Point</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% @students.order('total_score DESC').each do |student| %>
+                <tr>
+                    <td><%= student.login %></td>
+                    <td><%= student.family.name %></td>
+                    <td><%= student.total_score %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>

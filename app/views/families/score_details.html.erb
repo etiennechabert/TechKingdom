@@ -1,0 +1,110 @@
+<style>
+    *
+    {
+        font-size: 125%;
+    }
+</style>
+
+<%
+   def zero_value p_name, score_details, category
+       status = true
+       debugger if category == :negative_points && p_name == "Deserteur"
+       score_details.each do |k, v|
+           v.each do |k1, v1|
+               if k1 == category
+                   if v1[p_name].nil? == false && v1[p_name] != 0
+                       status = false
+                   end
+               end
+           end
+       end
+
+       status
+   end
+
+%>
+
+<table class="table table-stripped" style="color: lightgrey" id="positive_points">
+    <thead>
+    <tr>
+        <th>Bonus name</th>
+        <% @score_details.each do |k, d| %>
+            <th>
+                <%= k %>
+            </th>
+        <% end %>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @positive_points.each do |p_name| %>
+        <% next if zero_value p_name, @score_details, :positive_points %>
+        <tr>
+            <td>
+                <%= p_name %>
+            </td>
+            <% @score_details.each do |k, d| %>
+                <td>
+                    <% if d[:positive_points][p_name].nil? %>
+                        0
+                    <% else %>
+                        <%= d[:positive_points][p_name] %>
+                    <% end %>
+                </td>
+            <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<table class="table table-stripped" style="color: lightgrey" id="negative_points">
+    <thead>
+    <tr>
+        <th>Malus name</th>
+        <% @score_details.each do |k, d| %>
+            <th>
+                <%= k %>
+            </th>
+        <% end %>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @negative_points.each do |p_name| %>
+        <% next if zero_value p_name, @score_details, :negative_points %>
+        <tr>
+            <td>
+                <%= p_name %>
+            </td>
+            <% @score_details.each do |k, d| %>
+                <td>
+                    <% if d[:negative_points][p_name].nil? %>
+                        0
+                    <% else %>
+                        <%= d[:negative_points][p_name] %>
+                    <% end %>
+                </td>
+            <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<script>
+    val = 0;
+    setInterval(function()
+    {
+        if (val == 0)
+        {
+            val = 1;
+            $("#positive_points").hide();
+            $("#negative_points").show();
+        }
+        else
+        {
+            val = 0;
+            $("#positive_points").show();
+            $("#negative_points").hide();
+        }
+    }, 10000);
+</script>

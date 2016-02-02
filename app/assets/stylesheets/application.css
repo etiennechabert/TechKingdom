@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jquery-ui/autocomplete
+ *= require bootstrap_and_overrides
+  *= require_self
+ */
+
+body
+{
+    background: #555555;
+    color: #ffffff;
+}
+
+a:visited
+{
+    color: #BBBBBB;
+}
+
+input, select
+{
+    color: #000000;
+}
+
+.table
+{
+    color: #000000;
+}
+
+.table a
+{
+    color: blue;
+}
+
+.table a:visited
+{
+    color: blue;
+}
+
+thead
+{
+    color: #ffffff;
+}
+
+.table-striped>tbody>tr:nth-child(odd)
+{
+    background-color: #C2C2C2;
+}
+
+.table-striped>tbody>tr:nth-child(even)
+{
+    background-color: #a5a5a5;
+}
+
+a, a:visited
+{
+    color: #ffffff;
+}
+
+.table>tbody>tr.success>td
+{
+    background-color: #72BE72;
+    color: #ffffff;
+}
+
+.table>tbody>tr.danger>td
+{
+    background-color: #F56969;
+    color: #ffffff;
+}

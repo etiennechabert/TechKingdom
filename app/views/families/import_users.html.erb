@@ -1,0 +1,7 @@
+<%= form_tag({action: :import_users_create}, multipart: true) do %>
+    <%= label_tag 'users' %>
+    <%= select_tag 'users', options_for_select(Family.upload_users_choices) %>
+    <%= label_tag 'file' %>
+    <%= file_field_tag 'file' %>
+    <%= submit_tag 'Import' %>
+<% end %>

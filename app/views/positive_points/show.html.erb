@@ -1,0 +1,29 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>Student</td>
+        <td>Pedago / Astek</td>
+        <td>Date</td>
+        <td>Undo</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @positive_point.positive_point_student_relationships.each do |p| %>
+        <%
+           if p.astek_id.nil?
+               actor = Pedago.find(p.pedago_id)
+           else
+               actor = Astek.find(p.astek_id)
+           end
+        %>
+        <tr>
+            <td><%= p.student.login %></td>
+            <td><%= "#{actor.login} - #{actor.name}" %></td>
+            <td><%= p.created_at %></td>
+            <td><%= link_to 'Undo', undo_attribution_positive_point_path(@positive_point.id, p.id), class: 'btn btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+<%= link_to 'Back', positive_points_path, class: 'btn btn-warning' %>

@@ -1,0 +1,35 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: TechKingdomDev
+  pool: 5
+  username: TechKingdom
+  password: TechKingdom
+  host: 192.168.199.128
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: peda_kingdom_prod
+  pool: 5
+  username: peda
+  password: kingdom92400
+  host: localhost
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: TechKingdomTest
+  pool: 5
+  username: TechKingdom
+  password: TechKingdom
+  host: 192.168.199.128

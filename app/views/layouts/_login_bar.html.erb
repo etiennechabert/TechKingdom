@@ -1,0 +1,9 @@
+<%= form_tag login_create_path, role: 'form' do %>
+        <div class="nav navbar-nav navbar-right" style="margin: 10px">
+            <%= link_to "score details", score_details_families_path %>
+
+            <%= text_field :login, :login, placeholder: :login %>
+            <%= text_field :login, :password, {placeholder: :password_ppp, type: :password} %>
+            <%= submit_tag :login, class: 'btn btn-primary' %>
+        </div>
+<% end %>

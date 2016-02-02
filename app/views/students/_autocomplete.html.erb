@@ -1,0 +1,9 @@
+<script>
+    $("#<%= field_name %>").autocomplete(
+            {
+                source: <%= raw(Student.get_list) %>,
+                select: <%= select_event %>,
+                maxLength: 10
+            }
+    )
+</script>

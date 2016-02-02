@@ -1,0 +1,30 @@
+<h1>Listing asteks</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Login</th>
+        <th>Full Name</th>
+        <th>Family</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @asteks.each do |astek| %>
+        <tr>
+            <td><%= astek.login %></td>
+            <td><%= astek.name %></td>
+            <td><%= astek.family.name %></td>
+            <td><%= link_to 'Show', astek %></td>
+            <td><%= link_to 'Edit', edit_astek_path(astek) %></td>
+            <td><%= link_to 'Destroy', astek, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Astek', new_astek_path %>

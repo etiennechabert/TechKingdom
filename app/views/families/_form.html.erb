@@ -1,0 +1,35 @@
+<%= form_for(@family) do |f| %>
+  <% if @family.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@family.errors.count, "error") %> prohibited this family from being saved:</h2>
+
+      <ul>
+      <% @family.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :motto %>
+    <%= f.text_field :motto %>
+
+
+    <%
+       unless @family.id.nil?
+           room_list = Family.room_list
+       else
+           room_list = Family.unique_room_list
+       end
+    %>
+
+    <%= f.label :room %>
+    <%= f.select :room, room_list %>
+
+    <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

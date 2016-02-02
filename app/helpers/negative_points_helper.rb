@@ -1,0 +1,2 @@
+module NegativePointsHelper
+end

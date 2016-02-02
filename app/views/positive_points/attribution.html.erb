@@ -1,0 +1,68 @@
+<h1>Positive points attribution</h1>
+
+<%= form_tag attribution_create_positive_points_path, {role: 'form', id: 'form'} do %>
+    <div class="form-group">
+        <%= label_tag :positive_point %>
+        <% #todo: fix pedago %>
+        <%= select_tag :positive_point, options_for_select(PositivePoint.list @user.class.name), class: 'form-control' %>
+    </div>
+
+    <div class="raw">
+        <div class="form-group" style="padding-left: 0px">
+            <%= label_tag :students %>
+            <%= text_area_tag :students, nil, {class: 'form-control', readonly: :readonly} %>
+        </div>
+    </div>
+<% end %>
+
+<div class="form-group">
+    <%= label_tag :student_research %>
+    <%= text_field_tag :student_research, nil, {class: 'form-control'} %>
+</div>
+
+<div class="raw">
+    <div class="col-md-6">
+        <div class="pull-left">
+            <button class="btn btn-success" onclick="$('#form').submit()">
+                Submit
+            </button>
+
+            <%= link_to 'Back', positive_points_path, class: 'btn btn-warning' %>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="pull-right">
+            <button style="" type="button" class="btn btn-info" onclick="undo()">Undo</button>
+            <button style="" type="button" class="btn btn-primary" onclick="$('#students').val('')">Reset</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function add_student(event, ui)
+    {
+        var $students = $("#students"),
+            newStudent = ui.item.value,
+            allStudents = $students.val();
+        if (allStudents.indexOf(newStudent) === -1) {
+            $students.val(allStudents
+                ? (allStudents + ";" + newStudent)
+                : newStudent
+            );
+        }
+        setTimeout(function(){
+            $("#student_research").autocomplete('close').val('');
+        }, 0);
+    }
+
+    function undo()
+    {
+        array = $("#students").val().split(';');
+        array.pop();
+        $("#students").val(array.join(';'));
+    }
+</script>
+
+<%= render 'students/autocomplete', field_name: 'student_research', select_event: 'add_student' %>

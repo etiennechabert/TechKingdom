@@ -1,0 +1,30 @@
+<h1>Listing grades_imports</h1>
+
+<table class="table table-stripped">
+    <thead>
+    <tr>
+        <th>Day</th>
+        <th>Norme master</th>
+        <th>Bonne note</th>
+        <th>Malus Norme</th>
+        <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @grades_imports.each do |grades_import| %>
+        <tr>
+            <td> <%= grades_import.date %> </td>
+            <td> <%= grades_import.positive_point_student_relationships.where(positive_point_id: PositivePoint.find_by(title: 'Maitre de la norme').id).count %></td>
+            <td> <%= grades_import.positive_point_student_relationships.where(positive_point_id: [PositivePoint.find_by(title: 'Bonne note').id, PositivePoint.find_by(title: 'Bonne note (colle/exam)').id]).count %></td>
+            <td> <%= grades_import.negative_point_family_relationships.where(negative_point_id: NegativePoint.find_by(title: 'Norme').id).count %></td>
+            <td> <%= link_to 'Norme master', norme_masters_grades_import_path(grades_import) %></td>
+            <td><%= link_to 'Destroy', grades_import, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New grade import', new_grades_import_path, class: 'pull-right btn btn-success' %>

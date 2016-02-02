@@ -1,0 +1,32 @@
+<h1>Listing families</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Motto</th>
+        <th>Room</th>
+        <th>Students</th>
+        <th>Asteks</th>
+        <th>Pedago</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @families.each do |family| %>
+        <tr>
+            <td><%= link_to family.name, family_path(family.id) %></td>
+            <td><%= family.motto %></td>
+            <td><%= family.room %></td>
+            <td><%= link_to (family.entity_numbers 'Student'), show_members_family_path(family, "Student") %></td>
+            <td><%= link_to (family.entity_numbers 'Astek'), show_members_family_path(family, "Astek") %></td>
+            <td><%= link_to (family.entity_numbers 'Pedago'), show_members_family_path(family, "Pedago") %></td>
+            <td><%= link_to 'Bonus details', bonus_details_family_path(family) %></td>
+            <td><%= link_to 'Import users', import_users_family_path(family) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<br>

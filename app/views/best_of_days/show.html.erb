@@ -1,0 +1,13 @@
+<ul>
+    <li>
+        Pedago : <%= Pedago.find(@best_of_day.pedago_id).name %>
+    </li>
+    <li>
+        Date : <%= @best_of_day.day %>
+    </li>
+    <% BestOfDay.field_names.each do |f| %>
+        <li>
+            <%= "#{f} : #{@best_of_day[f]}" %>
+        </li>
+    <% end %>
+</ul>

@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>
+            Login
+        </th>
+        <th>
+            Maison
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @norme_masters.each do |n| %>
+        <tr>
+            <td>
+                <%= n.student.login %>
+            </td>
+            <td>
+                <%= n.student.family.name %>
+            </td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>

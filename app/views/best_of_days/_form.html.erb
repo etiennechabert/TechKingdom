@@ -1,0 +1,43 @@
+<div class="col-md-6">
+
+<%= form_for @best_of_day, html: {role: "form"} do |f| %>
+  <% if @best_of_day.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@best_of_day.errors.count, "error") %> prohibited this best_of_day from being saved:</h2>
+
+      <ul>
+      <% @best_of_day.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+      <div class="form-group">
+          <%= f.label :day%>
+          <%= f.date_select :day, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+          <%= f.label :commentary %>
+          <%= f.text_field :commentary, class: "form-control" %>
+      </div>
+
+      <% BestOfDay.field_names.each do |field_name| %>
+          <div class="form-group">
+              <%= f.label field_name %>
+              <%= f.text_field field_name, class: "form-control" %>
+          </div>
+          <%= render 'students/autocomplete', field_name: "best_of_day_#{field_name}", select_event: 'function(event, ui) {}'%>
+      <% end %>
+
+      <div class="pull-right">
+          <%= link_to 'Back', best_of_days_path, class: 'btn btn-warning' %>
+          <%= f.submit 'Submit', class: 'btn btn-success' %>
+      </div>
+  </div>
+
+<% end %>
+
+</div>

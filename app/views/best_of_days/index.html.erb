@@ -1,0 +1,28 @@
+<h1>Listing best_of_days</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+      <th>Day</th>
+      <th>Pedago</th>
+      <th>Commentary</th>
+      <th colspan="2">Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @best_of_days.each do |best_of_day| %>
+      <tr>
+          <td><%= best_of_day.day %></td>
+          <td><%= Pedago.find(best_of_day.pedago_id).name %></td>
+          <td><%= best_of_day.commentary %></td>
+          <td><%= link_to 'Show', best_of_day %></td>
+          <td><%= link_to 'Destroy', best_of_day, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div class="pull-right">
+<%= link_to 'New Best of day', new_best_of_day_path, class: 'btn btn-success' %>
+</div>

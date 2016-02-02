@@ -1,0 +1,17 @@
+<%= form_for(@negative_point) do |f| %>
+  <% if @negative_point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@negative_point.errors.count, "error") %> prohibited this negative_point from being saved:</h2>
+
+      <ul>
+      <% @negative_point.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

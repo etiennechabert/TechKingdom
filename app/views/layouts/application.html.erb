@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TechKingdom</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag     params[:controller] %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag  params[:controller] %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container-fluid" style="height:100%;margin:0;padding:0;">
+
+    <nav class="navbar navbar-inverse" role="navigation" id="action_bar">
+        <button id="hide_me_button" onclick="$('#action_bar').remove()">X</button>
+        <%= render 'layouts/astek_bar' if @user.nil? == false && @user.class.name == "Astek" %>
+        <%= render 'layouts/pedago_bar' if @user.nil? == false && @user.class.name == "Pedago" %>
+        <%= render 'layouts/login_bar' if @user.nil? %>
+    </nav>
+
+    <!--<p id="notice" class="bg-primary"><%= notice %></p>-->
+
+    <%= yield %>
+</div>
+
+<style>
+        #hide_me_button
+        {
+            padding: 0px 20px;
+            background: #222;
+            border: none;
+            font-size: 47px;
+            position: relative;
+            float: left;
+        }
+</style>
+
+</body>
+</html>

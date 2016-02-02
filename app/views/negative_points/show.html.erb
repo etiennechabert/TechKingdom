@@ -1,0 +1,70 @@
+<h3><%= @negative_point.title%></h3>
+
+<p>
+    Pour : <%= @negative_point.description %>
+</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>
+            Login attribution
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Type attribution
+        </th>
+        <th>
+            Familly
+        </th>
+        <th>
+            Numbers
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @negative_point.negative_point_family_relationships.each do |n| %>
+        <%
+           if n.astek_id.nil?
+               @actor = n.pedago
+           else
+               @actor = n.astek
+           end
+        %>
+        <tr>
+            <td>
+                <%= @actor.login %>
+            </td>
+            <td>
+                <%= @actor.name %>
+            </td>
+            <td>
+                <%= @actor.class.name %>
+            </td>
+            <td>
+                <%= n.family.name %>
+            </td>
+            <td>
+                <%= n.number %>
+            </td>
+            <td>
+                <%= n.created_at %>
+            </td>
+            <td>
+                <%= link_to 'Undo', undo_attribution_negative_point_path(@negative_point,n), class: 'btn btn-danger' %>
+            </td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<%= link_to 'Back', negative_points_path, class: 'btn btn-warning' %>

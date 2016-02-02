@@ -1,0 +1,15 @@
+<div class="dropdown pull-right" style="padding: 10px">
+    <span style="margin: 10px"><%= "#{@user.name} - #{@user.class.name}" %></span>
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" style="color: #ffffff; background-color: #000000; border-color: #ffffff">
+        Actions
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><%= link_to "positive points", positive_points_path, {role: :memuitem, tabindex: "-1"} %></li>
+        <li role="presentation"><%= link_to "familly", families_path, {role: :memuitem, tabindex: "-1"} %></li>
+        <li role="presentation"><%= link_to "score details", score_details_families_path, {role: :memuitem, tabindex: "-1"} %></li>
+
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><%= link_to "logout", logout_path, {role: :memuitem, tabindex: "-1"} %></li>
+    </ul>
+</div>

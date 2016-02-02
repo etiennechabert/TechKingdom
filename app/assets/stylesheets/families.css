@@ -1,0 +1,364 @@
+/* ### reset ########## */
+html, body {
+    height: 100%;
+}
+body {
+    color: #ddd;
+    font: 14px sans-serif;
+    background: #555;
+    margin: 0;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.fam_clearBoth:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.fam_table {
+    display: table;
+    width: 100%;
+}
+.fam_table > * {
+    display: table-cell;
+}
+
+
+/* ### general settings ########## */
+.fam_family {
+    height: 100%;
+    padding: 20px;
+}
+.fam_family:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.fam_rawTop    { height: 40%; }
+.fam_rawBottom { height: 60%; }
+.fam_rawTop > *,
+.fam_rawBottom > * {
+    float: left;
+}
+.fam_resume,
+.fam_students {
+    height: 100%;
+    padding-bottom: 20px;
+}
+.fam_resume {
+    width: 50%;
+}
+.fam_resume > * {
+    position: relative;
+    height: 100%;
+}
+.fam_resume .fam_teamScore {
+    float: left;
+    width: 33%;
+}
+.fam_resume .fam_right {
+    float: right;
+    width: 64%;
+}
+.fam_students {
+    width: 50%;
+    padding-left: 20px;
+}
+.fam_listNewsContainer {
+    width: 66%;
+    height: 100%;
+}
+.fam_advicesContainer {
+    width: 34%;
+    height: 100%;
+}
+/* colors */
+.fam_bg_baratheons { background: #DDDD3B; }
+.fam_bg_lannisters { background: #E73535; }
+.fam_bg_starks     { background: #2020D1; }
+.fam_bg_targaryens { background: #222222; }
+.fam_bg_general      { background: #FFFFFF; }
+.fam_bg_technical    { background: #F33E3E; }
+.fam_bg_organization { background: #E9E953; }
+.fam_bg_methodology  { background: #7070FF; }
+.fam_resume .fam_score span,
+.fam_teamRanking,
+.fam_students .fam_groups {
+    background: rgba(0,0,0,.3);
+}
+.fam_borderRadius {
+    border-radius: 4px;
+    overflow: hidden;
+}
+.fam_puce {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.fam_listNewsContainer,
+.fam_advices {
+    background: #fff;
+    box-shadow: inset 0 0 6px #000;
+}
+.fam_bonus { background: rgba(  0,135, 44,.66); }
+.fam_malus { background: rgba(225,  5,  0,.66); }
+
+/* ### TeamScore ########## */
+.fam_teamScore {
+    text-align: center;
+}
+.fam_teamScore img {
+    max-width: 100%;
+    max-height: 80%;
+}
+.fam_teamScore.fam_noScore img {
+    max-height: 100%;
+}
+.fam_teamScore .fam_score {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.fam_teamScore.fam_noScore .fam_score {
+    display: none;
+}
+.fam_teamScore .fam_score span {
+    display: inline-block;
+    padding: .25em .5em;
+    font: bold 32px monospace;
+}
+
+
+/* ### lists ########## */
+.fam_listNewsContainer {
+}
+.fam_listNews {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.fam_listNews .fam_table {
+    width: 100.4%;
+}
+.fam_listNews .fam_list .fam_table:nth-child(odd)  { background: rgba(0,0,0,.4); }
+.fam_listNews .fam_list .fam_table:nth-child(even) { background: rgba(0,0,0,.2); }
+.fam_listNews .fam_list .fam_table > * {
+    padding: .4em .5em;
+}
+.fam_listNews .fam_login {
+    font-weight: bold;
+}
+.fam_statusContainer {
+    font-weight: bold;
+    min-width: 100px;
+}
+.fam_listNews .fam_pts {
+    font-family: monospace;
+    display: block;
+    padding: .2em .5em;
+    width: 65px;
+    color: #fff;
+    text-align: right;
+    background: rgba(0,0,0,.8);
+}
+.fam_listNews .fam_pts * {
+    margin-left: .5em;
+}
+.fam_statusContainer .fam_status {
+    margin-top: .5em;
+    font-size: 12px;
+    font-style: italic;
+    white-space: nowrap;
+}
+.fam_listNews .fam_logo {
+    vertical-align: middle;
+}
+.fam_listNews .fam_logo img {
+    width: 32px;
+}
+.fam_listNews .fam_msg {
+    width: 100%;
+}
+/* ### News:Bonus/Malus ########## */
+.fam_listNews.fam_bonus { background: rgba(  0,135, 44,.66); }
+.fam_listNews.fam_malus { background: rgba(225,  5,  0,.66); }
+.fam_listNews.fam_malus .fam_login { display: none; }
+.fam_listNews.fam_bonus .fam_pts:before { content: "+"; }
+.fam_listNews.fam_malus .fam_pts:before { content: "-"; }
+
+
+/* ### Team Ranking ########## */
+.fam_teamRanking {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 60px;
+    padding: 8px 25px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.5);
+}
+.fam_teamRanking .fam_frieze {
+    position: relative;
+    height: 100%;
+}
+.fam_teamRanking .fam_team {
+    position: absolute;
+    width: 2px;
+    margin-left: -1px;
+    height: 100%;
+    -webkit-transition: left 1s ease;
+    -moz-transition: left 1s ease;
+    -ms-transition: left 1s ease;
+    transition: left 1s ease;
+}
+.fam_teamRanking .fam_team > * {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    width: 32px;
+    margin-left: -16px;
+    height: 25%;
+    text-align: center;
+    background: #222;
+}
+.fam_teamRanking .fam_team.fam_select > * {
+    box-shadow: 0 0 7px rgba(255,255,255,.8);
+}
+.fam_teamRanking .fam_team img {
+    width: 23px;
+}
+.fam_teamRanking .fam_team span {
+    font: 12px monospace;
+}
+
+
+/* ### Score Percentages ########## */
+.fam_scorePercents {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.fam_scorePercents .fam_graph {
+    height: 18px;
+    background: rgba(0,0,0,.2);
+}
+.fam_scorePercents > * > * {
+    float: left;
+    width: 33.33333%;
+}
+.fam_scorePercents .fam_graph * {
+    height: 100%;
+    -webkit-transition: width 1s ease;
+    -moz-transition: width 1s ease;
+    -ms-transition: width 1s ease;
+    transition: width 1s ease;
+}
+.fam_scorePercents .fam_infos {
+    padding-top: .5em;
+}
+.fam_scorePercents .fam_infos > * {
+    text-align: center;
+}
+.fam_scorePercents .fam_infos > * > * {
+    vertical-align: middle;
+}
+.fam_scorePercents .fam_infos .fam_puce {
+    margin-right: .33em;
+}
+.fam_scorePercents .fam_infos .fam_name {
+    font-weight: bold;
+}
+.fam_scorePercents .fam_infos .fam_percent {
+    opacity: .75;
+}
+.fam_scorePercents .fam_infos .fam_percent:before { content: " "; }
+.fam_scorePercents .fam_infos .fam_percent:after  { content: "%"; }
+
+
+/* ### Students ranking ########## */
+.fam_students {
+}
+.fam_students .fam_groups {
+    height: 100%;
+}
+.fam_students .fam_group {
+    float: left;
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+}
+.fam_students .fam_group:nth-child(even) {
+    background: rgba(0,0,0,.1);
+}
+.fam_students .fam_group .fam_domaine {
+    height: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.fam_students .fam_ranking > * {
+    display: table;
+    width: 100%;
+}
+.fam_students .fam_ranking > *:nth-child(even) {
+    background: rgba(0,0,0,.2);
+}
+.fam_students .fam_ranking > * > * {
+    display: table-cell;
+    vertical-align: middle;
+    font: 12px monospace;
+    padding-left: .5em;
+    line-height: 32px;
+}
+.fam_students .fam_rank {
+    opacity: .5;
+}
+.fam_students .fam_rank:before {
+    /*content: "#";*/
+}
+.fam_students .fam_ranking img {
+    width: 24px;
+}
+.fam_students .fam_login {
+    width: 100%;
+}
+.fam_students .fam_score {
+    font-weight: bold;
+    padding-right: .5em;
+}
+
+
+/* ### Advices ########## */
+.fam_advicesContainer {
+    padding-left: 20px;
+}
+.fam_advices {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0px;
+    padding: 0px;
+}
+.fam_advices thead {
+    text-align: center;
+    background: rgba(0,0,0,.75);
+}
+.fam_advices thead tr {
+    height: 50px;
+}
+.fam_advices tbody tr:nth-child(odd)  td { background: rgba(0,0,0,.2); }
+.fam_advices tbody tr:nth-child(even) td { background: rgba(0,0,0,.4); }
+.fam_advices tbody tr td:first-child {
+    text-align: left;
+    padding-left: 1em;
+    font-weight: bold;
+}
+.fam_advices tbody tr td:first-child:first-letter {
+    text-transform:capitalize;
+}
+.fam_advices tbody tr td + td {
+    width: 25%;
+    text-align: center;
+    font-size: 24px;
+}

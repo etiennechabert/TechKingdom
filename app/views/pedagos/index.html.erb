@@ -1,0 +1,30 @@
+<h1>Listing pedagos</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Login</th>
+        <th>Full Name</th>
+        <th>Family</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @pedagos.each do |pedago| %>
+        <tr>
+            <td><%= pedago.login %></td>
+            <td><%= pedago.name %></td>
+            <td><%= pedago.family.name %></td>
+            <td><%= link_to 'Show', pedago %></td>
+            <td><%= link_to 'Edit', edit_pedago_path(pedago) %></td>
+            <td><%= link_to 'Destroy', pedago, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pedago', new_pedago_path %>

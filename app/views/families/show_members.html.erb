@@ -1,0 +1,34 @@
+<h1><%= "Detail for familly #{@family.name} for entity #{@entity.name}" %></h1>
+
+<table class="table table-stripped">
+
+    <thead>
+        <tr>
+            <th>Login</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tfoot>
+    <tr class="info">
+        <td>
+            Total:
+        </td>
+        <td>
+            <%= @result.size %>
+        </td>
+    </tr>
+    </tfoot>
+
+    <tbody>
+    <% @result.each do |r| %>
+        <tr>
+            <td><%= r.login %></td>
+            <td><%= r.name %></td>
+        </tr>
+    <% end %>
+    </tbody>
+
+
+
+</table>
